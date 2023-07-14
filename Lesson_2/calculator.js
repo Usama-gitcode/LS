@@ -14,6 +14,7 @@ function invalidNumber(number) {
   return number.trimStart() === "" || Number.isNaN(Number(number));
 }
 
+
 prompt(MESSAGES["welcome"]);
 
 while (true) {

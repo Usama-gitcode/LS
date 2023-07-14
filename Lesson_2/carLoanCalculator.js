@@ -1,64 +1,66 @@
-const readline = require("readline-sync");
+// const readline = require("readline-sync");
 
-function prompt(message) {
-  console.log(`=> ${message}`);
-}
+// function prompt(message) {
+//   console.log(`=> ${message}`);
+// }
 
-function invalidNumber(number) {
-  return (
-    number.trimStart() === "" ||
-    Number(number) <= 0 ||
-    Number.isNaN(Number(number))
-  );
-}
+// function invalidNumber(number) {
+//   return (
+//     number.trimStart() === "" ||
+//     Number(number) <= 0 ||
+//     Number.isNaN(Number(number))
+//   );
+// }
 
-function cleaningInput(userInput) {
-  return userInput.replaceAll(',', '').replace('$', '').replace('%', '');
-}
+// function cleaningInput(userInput) {
+//   return userInput.replaceAll(',', '').replace('$', '').replace('%', '');
+// }
 
-prompt("Welcome to Loan Calculator");
+// prompt("Welcome to Loan Calculator");
 
-while (true) {
-  prompt("What is your Loan amount");
-  let loanAmount = cleaningInput(readline.question());
+// while (true) {
+//   prompt("What is your Loan amount");
+//   let loanAmount = cleaningInput(readline.question());
 
-  while (invalidNumber(loanAmount)) {
-    prompt("Please enter a valid number");
-    loanAmount = readline.question();
-  }
+//   while (invalidNumber(loanAmount)) {
+//     prompt("Please enter a valid number");
+//     loanAmount = readline.question();
+//   }
 
-  prompt("What is your interest Rate");
-  let interestRate = cleaningInput(readline.question());
+//   prompt("What is your interest Rate");
+//   let interestRate = cleaningInput(readline.question());
 
-  while (invalidNumber(interestRate)) {
-    prompt("Please enter a valid number");
-    interestRate = readline.question();
-  }
+//   while (invalidNumber(interestRate)) {
+//     prompt("Please enter a valid number");
+//     interestRate = readline.question();
+//   }
 
-  prompt("What is you loan duration in years");
-  let loanDuration = readline.question();
+//   prompt("What is you loan duration in years");
+//   let loanDuration = readline.question();
 
-  while (invalidNumber(loanDuration)) {
-    prompt("Please enter a valid number");
-    loanDuration = readline.question;
-  }
+//   while (invalidNumber(loanDuration)) {
+//     prompt("Please enter a valid number");
+//     loanDuration = readline.question;
+//   }
 
-  let monthlyInterestRate = (Number(interestRate / 100) / 12);
-  let months = Number(loanDuration) * 12;
+//   let monthlyInterestRate = (Number(interestRate / 100) / 12);
+//   let months = Number(loanDuration) * 12;
 
-  let monthlyPayment =
-    Number(loanAmount) *
-    (monthlyInterestRate /
-      (1 - Math.pow(1 + monthlyInterestRate, -Number(months))));
+//   let monthlyPayment =
+//     Number(loanAmount) *
+//     (monthlyInterestRate /
+//       (1 - Math.pow(1 + monthlyInterestRate, -Number(months))));
 
-  console.log(`Your monthly payment is $${monthlyPayment.toFixed(2)}`);
+//   console.log(`Your monthly payment is $${monthlyPayment.toFixed(2)}`);
 
-  prompt("Do you want to perform another calculation?");
-  let answer = readline.question().toLowerCase();
-  while (answer[0] !== "n" && answer[0] !== "y") {
-    prompt('Please enter "y" or "n".');
-    answer = readline.question().toLowerCase();
-  }
+//   prompt("Do you want to perform another calculation?");
+//   let answer = readline.question().toLowerCase();
+//   while (answer[0] !== "n" && answer[0] !== "y") {
+//     prompt('Please enter "y" or "n".');
+//     answer = readline.question().toLowerCase();
+//   }
 
-  if (answer[0] === "n") break;
-}
+//   if (answer[0] === "n") break;
+// }
+
+
