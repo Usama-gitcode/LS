@@ -27,13 +27,15 @@ function stringToNumber(string) {
   return value;
 }
 
-function stringToSignedInteger(str) {
-  if (str[0] === "+") {
-    return stringToNumber(str.substring(1));
-  } else if (str[0] === "-") {
-    return -1 * stringToNumber(str.substring(1));
+function stringToSignedInteger(string) {
+  switch (string[0]) {
+    case "-":
+      return -stringToNumber(string.slice(1, string.length));
+    case "+":
+      return stringToNumber(string.slice(1, string.length));
+    default:
+      return stringToNumber(string);
   }
-  return stringToNumber(str);
 }
 
 console.log(stringToSignedInteger("4321") === 4321);
