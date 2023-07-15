@@ -1,19 +1,39 @@
-function stringToInteger(str) {
-  let num = 0;
-  let n = str.length;
-  for (let i = 0; i < n; i += 1) {
-    num = num * 10 + (str.charCodeAt(i) - 48);
+function stringToNumber(string) {
+  const DIGITS = {
+    0: 0,
+    1: 1,
+    2: 2,
+    3: 3,
+    4: 4,
+    5: 5,
+    6: 6,
+    7: 7,
+    8: 8,
+    9: 9,
+  };
+
+  let arrayOfDigits = [];
+  for (let i = 0; i < string.length; i++) {
+    const char = string[i];
+    arrayOfDigits.push(DIGITS[char]);
   }
-  return num;
+
+  let value = 0;
+  for (let i = 0; i < arrayOfDigits.length; i++) {
+    const digit = arrayOfDigits[i];
+    value = 10 * value + digit;
+  }
+
+  return value;
 }
 
 function stringToSignedInteger(str) {
   if (str[0] === "+") {
-    return stringToInteger(str.substring(1));
+    return stringToNumber(str.substring(1));
   } else if (str[0] === "-") {
-    return -1 * stringToInteger(str.substring(1));
+    return -1 * stringToNumber(str.substring(1));
   }
-  return stringToInteger(str);
+  return stringToNumber(str);
 }
 
 console.log(stringToSignedInteger("4321") === 4321);

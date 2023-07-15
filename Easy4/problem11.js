@@ -1,20 +1,19 @@
-function numberToString(num) {
-  if (num === 0) {
-    return "0";
-  }
+function integerToString(num) {
+  if (num === 0) return "0";
 
-  let result = "";
+  const DIGITS = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
+
+  let StringIntegers = "";
 
   while (num > 0) {
-    const digit = num % 10;
-    result = String(digit) + result;
+    let remainder = num % 10;
     num = Math.floor(num / 10);
+    StringIntegers = DIGITS[remainder] + StringIntegers;
   }
-
-  return result;
+  return StringIntegers;
 }
 
-console.log(numberToString(0));     // Output: "0"
-console.log(numberToString(4321));   // Output: "4321"
-console.log(numberToString(5000));  // Output: "5000"
-console.log(numberToString(987654)); // Output: "987654"
+console.log(integerToString(4321));
+console.log(integerToString(0));
+console.log(integerToString(5000));
+console.log(integerToString(5439890));
