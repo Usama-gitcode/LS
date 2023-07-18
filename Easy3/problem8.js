@@ -2,23 +2,18 @@ function replaceNonAlphabetic(str) {
   const alphabeticChars =
     "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
   let result = "";
-  let previousCharIsAlphabetic = false;
 
-  for (let i = 0; i < str.length; i++) {
-    const char = str[i];
+  for (let index = 0; index < str.length; index++) {
+    const char = str[index];
 
     if (alphabeticChars.includes(char)) {
       result += char;
-      previousCharIsAlphabetic = true;
     } else {
-      if (previousCharIsAlphabetic) {
-        result += " ";
-        previousCharIsAlphabetic = false;
-      }
+      result += " ";
     }
   }
 
-  return result;
+  return result.replace(/\s+/g, " ");
 }
 
 console.log(replaceNonAlphabetic("---what's my +*& line?"));
